@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <!-- Define properties for log pattern and log file path -->
+    <Properties>
+        <!-- Define log output pattern -->
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+        <!-- Define the log file directory -->
+        <Property name="LOG_PATH">logs</Property>
+        <!-- Define the pattern for log file names, rolling policy will handle the naming -->
+        <Property name="LOG_FILE_NAME">${LOG_PATH}/application-%d{yyyy-MM-dd}.log</Property>
+    </Properties>
+
+    <!-- Define Appenders for console and file output -->
+    <Appenders>
+        <!-- Console appender configuration -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- Set the log output pattern for console -->
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <!-- File appender configuration with rolling policy -->
+        <RollingFile name="File" fileName="${LOG_PATH}/application.log" filePattern="${LOG_PATH}/application-%d{yyyy-MM-dd}.log">
+            <!-- Set the log output pattern for files -->
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <!-- Define the log file rolling policy -->
+            <Policies>
+                <!-- Time-based rolling policy -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <!-- Define loggers and their levels -->
+    <Loggers>
+        <!-- Root logger configuration, default log level is info -->
+        <Root level="info">
+            <!-- Reference the console and file appenders -->
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+        <!-- Logger configuration for a specific package -->
+        <Logger name="com.example" level="debug" additivity="false">
+            <!-- Reference the console and file appenders -->
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Logger>
+    </Loggers>
+</Configuration>

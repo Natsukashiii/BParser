@@ -1,0 +1,53 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.ipynb_checkpoints
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+mvnw
+mvnw.cmd
+/logs/
+/.mvn/
+
+### VS Code ###
+.vscode/
+
+# Ignore frontend build files
+/frontend/build
+/.virtual_documents
+
+appendix/
+/frontend
+frontend/
+examples/
+src/main/java/com/serg/githubmining/controller/
+logs/
+/appendix
+src/test/
+.DS_Store
+/appendix
