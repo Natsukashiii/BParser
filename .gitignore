@@ -45,7 +45,7 @@ appendix/
 /frontend
 frontend/
 examples/
-src/main/java/com/serg/githubmining/controller/
+src/main/java/com/parser/githubmining/controller/
 logs/
 /appendix
 src/test/
